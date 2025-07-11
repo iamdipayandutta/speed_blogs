@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light Theme Palette */
+    --background: 60 100% 98.5%; /* #FFFDF7 - Warm cream background */
+    --foreground: 0 0% 10%; /* #1A1A1A */
+    --card: 60 100% 98.5%; /* #FFFDF7 - Same as background */
+    --card-foreground: 0 0% 10%; /* #1A1A1A */
+    --popover: 60 100% 98.5%; /* #FFFDF7 - Same as background */
+    --popover-foreground: 0 0% 10%; /* #1A1A1A */
+    --primary: 196 78% 33%; /* #107896 - Teal accent color */
+    --primary-foreground: 60 100% 98.5%; /* #FFFDF7 - Cream */
+    --secondary: 60 30% 96%; /* Slightly darker cream for secondary */
+    --secondary-foreground: 0 0% 10%; /* #1A1A1A */
+    --muted: 60 30% 96%; /* Slightly darker cream for muted */
+    --muted-foreground: 0 0% 45%; /* #737373 - Secondary text */
+    --accent: 196 78% 33%; /* #107896 - Same as primary */
+    --accent-foreground: 60 100% 98.5%; /* #FFFDF7 - Cream */
+    --destructive: 7 75% 44%; /* #C02F1D - Red accent */
+    --destructive-foreground: 60 100% 98.5%; /* #FFFDF7 - Cream */
+    --border: 60 30% 90%; /* Warmer border color */
+    --input: 60 30% 90%; /* Warmer input color */
+    --ring: 196 78% 33%; /* #107896 - Same as primary */
+    --radius: 0.5rem;
+    
+    /* Sidebar specific colors - Light Theme */
+    --sidebar-background: 60 30% 96%; /* Slightly darker cream for sidebar */
+    --sidebar-foreground: 0 0% 10%; /* #1A1A1A */
+    --sidebar-primary: 196 78% 33%; /* #107896 - Teal accent color */
+    --sidebar-primary-foreground: 60 100% 98.5%; /* #FFFDF7 - Cream */
+    --sidebar-accent: 196 78% 33%; /* #107896 - Same as primary */
+    --sidebar-accent-foreground: 60 100% 98.5%; /* #FFFDF7 - Cream */
+    --sidebar-border: 60 30% 85%; /* Slightly darker border for sidebar */
+    --sidebar-ring: 196 78% 33%; /* #107896 - Same as primary */
+    
+    /* Code block specific colors */
+    --code-background: 60 30% 96%; /* Slightly darker cream for code blocks */
+    --code-foreground: 0 0% 10%; /* #1A1A1A */
+  }
+
+  .dark {
+    /* Dark Theme Palette */
+    --background: 0 0% 7%; /* #121212 */
+    --foreground: 0 0% 88%; /* #E0E0E0 */
+    --card: 0 0% 7%; /* #121212 */
+    --card-foreground: 0 0% 88%; /* #E0E0E0 */
+    --popover: 0 0% 7%; /* #121212 */
+    --popover-foreground: 0 0% 88%; /* #E0E0E0 */
+    --primary: 214 90% 76%; /* #8AB4F8 - Light blue accent */
+    --primary-foreground: 0 0% 7%; /* #121212 */
+    --secondary: 0 0% 12%; /* #1E1E1E */
+    --secondary-foreground: 0 0% 88%; /* #E0E0E0 */
+    --muted: 0 0% 12%; /* #1E1E1E */
+    --muted-foreground: 0 0% 70%; /* #B3B3B3 - Secondary text */
+    --accent: 214 90% 76%; /* #8AB4F8 - Same as primary */
+    --accent-foreground: 0 0% 7%; /* #121212 */
+    --destructive: 0 70% 50%; /* Adjusted red for dark theme */
+    --destructive-foreground: 0 0% 88%; /* #E0E0E0 */
+    --border: 0 0% 15%; /* #262626 */
+    --input: 0 0% 15%; /* #262626 */
+    --ring: 214 90% 76%; /* #8AB4F8 - Same as primary */
+    
+    /* Sidebar specific colors - Dark Theme */
+    --sidebar-background: 0 0% 10%; /* #1A1A1A - Slightly lighter than main background */
+    --sidebar-foreground: 0 0% 88%; /* #E0E0E0 */
+    --sidebar-primary: 214 90% 76%; /* #8AB4F8 - Light blue accent */
+    --sidebar-primary-foreground: 0 0% 7%; /* #121212 */
+    --sidebar-accent: 214 90% 76%; /* #8AB4F8 - Same as primary */
+    --sidebar-accent-foreground: 0 0% 7%; /* #121212 */
+    --sidebar-border: 0 0% 20%; /* Slightly lighter border for sidebar */
+    --sidebar-ring: 214 90% 76%; /* #8AB4F8 - Same as primary */
+    
+    /* Code block specific colors */
+    --code-background: 0 0% 12%; /* #1E1E1E */
+    --code-foreground: 0 0% 93%; /* #ECECEC */
+  }
+}
+
+/* Custom styles for LaTeX rendering */
+.latex-renderer {
+  font-size: 1.1em;
+}
+
+.latex-block {
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+/* Ensure KaTeX formulas are properly centered in block mode */
+.katex-display {
+  margin: 1em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Fix for long formulas */
+.katex-display > .katex {
+  max-width: 100%;
+}
+
+.katex-display > .katex > .katex-html {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5em 0;
+}
+
+/* Custom styles for the rich text editor */
+.rich-text-editor img {
+  max-width: 100%;
+  height: auto;
+}
+
+.rich-text-editor table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.rich-text-editor th,
+.rich-text-editor td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+}
+
+.rich-text-editor th {
+  background-color: var(--secondary);
+  font-weight: 600;
+}
+
+/* Code block styling */
+pre, code {
+  background-color: hsl(var(--code-background));
+  color: hsl(var(--code-foreground));
+}
+
+pre {
+  padding: 1rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: black;
+  }
+  
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: white;
+  }
+}
